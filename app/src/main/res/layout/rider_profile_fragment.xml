@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/profile_main_container"
+    android:background="@color/colorBG">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:background="@color/colorBlack"
+        android:layout_height="55dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            android:textSize="15sp"
+            android:id="@+id/rider_jobs"
+            android:layout_centerInParent="true"
+            android:textColor="@color/colorWhite"
+            android:gravity="center_horizontal|center_vertical" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorWhite">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/colorBG">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorEditTextBG"/>
+
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:id="@+id/profile_div">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="15dp"
+                android:id="@+id/profile_img"
+                android:src="@drawable/profile"
+                android:layout_centerVertical="true"
+                
+                />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/profile_img"
+                android:layout_marginStart="10dp"
+                android:textSize="13sp"
+                android:text="@string/profile"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+
+                 />
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="1dp"
+             android:layout_alignParentBottom="true"
+             android:background="@color/colorEditTextBG"/>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:id="@+id/today_job_div">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="15dp"
+                android:id="@+id/today_job_img"
+                android:layout_centerVertical="true"
+                android:src="@drawable/today_job"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/today_job_img"
+
+                android:text="@string/today_job"
+                android:textColor="@color/black"
+                android:layout_marginStart="10dp"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorEditTextBG"/>
+
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:id="@+id/change_password_div">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="15dp"
+                android:id="@+id/change_pass_img"
+                android:layout_centerVertical="true"
+                android:src="@drawable/lock"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/change_pass_img"
+
+                android:text="@string/change_pass"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                android:layout_marginStart="10dp"
+                android:textSize="13sp"
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/colorBG">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorEditTextBG"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorEditTextBG"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_weekly_earnings"
+            android:layout_width="match_parent"
+            android:layout_height="42dp">
+
+            <ImageView
+                android:id="@+id/iv_weekly_earnings"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="15dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_your_earning"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/iv_weekly_earnings"
+                android:layout_marginStart="10dp"
+                android:textSize="13sp"
+                android:text="Weekly Earnings"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorEditTextBG"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_sfits"
+            android:layout_width="match_parent"
+            android:layout_height="42dp">
+
+            <ImageView
+                android:id="@+id/iv_shifts"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="15dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_your_earning"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/iv_shifts"
+                android:layout_marginStart="10dp"
+                android:textSize="13sp"
+                android:text="Schedule"
+                android:textColor="@color/black"
+                android:textStyle="normal"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorEditTextBG"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:id="@+id/review_div">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="15dp"
+                android:id="@+id/review_img"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_review" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/review_img"
+                android:layout_marginStart="10dp"
+                android:textSize="13sp"
+                android:text="@string/review"
+                android:textColor="@color/black"
+
+                android:textStyle="normal"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorEditTextBG"/>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:id="@+id/language_div"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="15dp"
+                android:id="@+id/ic_language"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_world"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/ic_language"
+                android:layout_marginStart="10dp"
+                android:textSize="13sp"
+                android:text="@string/language"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/language_txt"
+                android:text="English"
+                android:layout_marginEnd="15dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorEditTextBG"/>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:id="@+id/log_out_div">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="15dp"
+                android:id="@+id/log_out_img"
+                android:layout_centerVertical="true"
+                android:src="@drawable/logout"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/log_out_img"
+                android:text="@string/log_out"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                android:layout_marginStart="10dp"
+                android:textSize="13sp"
+                />
+
+
+        </RelativeLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+    </ScrollView>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/transparent_layer"
+        android:visibility="gone"
+        android:background="@color/transparent_tint">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:id="@+id/progressDialog"
+        android:visibility="gone"
+        android:background="@drawable/round_shape_dialog_white"
+        >
+        <com.gmail.samehadar.iosdialog.CamomileSpinner
+            android:id="@+id/orderProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:spinnerColor="@color/colorRed"
+            />
+    </RelativeLayout>
+
+</FrameLayout>

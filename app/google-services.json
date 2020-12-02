@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "94609616047",
+    "firebase_url": "https://foodies-59aa1.firebaseio.com",
+    "project_id": "foodies-59aa1",
+    "storage_bucket": "foodies-59aa1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94609616047:android:7fdd5dbde321d59b56385a",
+        "android_client_info": {
+          "package_name": "com.foodies.digiomega"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94609616047-r7sj5q0n02qfi5isef8vv9a1e8s5ingt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAldLRrkozE61NSySX0peE9Sk7iQ78mVXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94609616047-m8hfjc4d0n89jjrr0shofla9dirb4pof.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94609616047:android:0efa945848f77deb56385a",
+        "android_client_info": {
+          "package_name": "com.foodies.hangrymatesrider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94609616047-r7sj5q0n02qfi5isef8vv9a1e8s5ingt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAldLRrkozE61NSySX0peE9Sk7iQ78mVXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94609616047-m8hfjc4d0n89jjrr0shofla9dirb4pof.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

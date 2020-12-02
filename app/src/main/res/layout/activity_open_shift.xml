@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivitiesAndFragments.Activities.OpenShiftActivity">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:background="@color/colorBlack"
+        android:layout_height="70dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/back_icon"
+            android:id="@+id/back_icon"
+            android:layout_marginStart="25dp"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_plus"
+            android:id="@+id/add"
+            android:tint="@color/colorWhite"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="25dp"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:id="@+id/txt_my_shift"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                android:text="My Shifts"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/bg_my_shift"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                android:text="Open Shifts"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:backgroundTint="@color/colorWhite"
+                android:textColor="@color/black"
+                android:background="@drawable/bg_my_shift"/>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_open_shift"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+    </androidx.recyclerview.widget.RecyclerView>
+    <RelativeLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:id="@+id/progressDialog"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:background="@drawable/round_shape_dialog_white"
+        >
+        <com.gmail.samehadar.iosdialog.CamomileSpinner
+            android:id="@+id/changePassProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:spinnerColor="@color/colorRed"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>
