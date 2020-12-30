@@ -3,8 +3,7 @@
 
 
     <string name="google_api_realsekey">AIzaSyDykD7YxXw3zxAucDPTm3bobuXEuv5D4Go</string>
-    <string name="google_api_debug">AIzaSyDykD7YxXw3zxAucDPTm3bobuXEuv5D4Go</string>
-
+        <string name="google_api_debug">AIzaSyDykD7YxXw3zxAucDPTm3bobuXEuv5D4Go</string>
 
     <string name="key_for_places">AIzaSyDykD7YxXw3zxAucDPTm3bobuXEuv5D4Go</string>
 

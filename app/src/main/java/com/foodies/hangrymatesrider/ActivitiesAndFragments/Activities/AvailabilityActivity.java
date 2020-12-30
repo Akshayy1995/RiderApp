@@ -144,7 +144,8 @@ public class AvailabilityActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 PrimeCalendar primeCalendar = new CivilCalendar();
-                PrimeDatePicker datePicker = PrimeDatePicker.Companion.dialogWith(primeCalendar) // or bottomSheetWith(today)
+                PrimeDatePicker datePicker = PrimeDatePicker.Companion.dialogWith(primeCalendar)
+                        // or bottomSheetWith(today)
                         .pickMultipleDays(new MultipleDaysPickCallback() {
                             @RequiresApi(api = Build.VERSION_CODES.M)
                             @Override
@@ -167,6 +168,7 @@ public class AvailabilityActivity extends AppCompatActivity {
                             }
                         })  // Passing callback is optional, can be set later using setDayPickCallback()
                         // Optional
+                        .minPossibleDate(primeCalendar)
                         .firstDayOfWeek(Calendar.MONDAY)       // Optional// Optional
                         .build();
 
@@ -190,11 +192,14 @@ public class AvailabilityActivity extends AppCompatActivity {
 
             int count = i+1;
             Log.d("list_size", String.valueOf(count));
+
+            Log.d("sending_dates",et_select_start_time.getText().toString()+" "+et_select_end_time.getText().toString()+" Dates  "+selected_multipleDays.get(i).getYear()+"-"+month+"-"+selected_multipleDays.get(i).getDate());
+
             try {
                 jsonObject.put("user_id", user_id);
                 jsonObject.put("starting_time",et_select_start_time.getText().toString());
                 jsonObject.put("ending_time", et_select_end_time.getText().toString());
-                jsonObject.put("date",  selected_multipleDays.get(i).getYear()+"/"+month+"/"+selected_multipleDays.get(i).getDate());
+                jsonObject.put("date",  selected_multipleDays.get(i).getYear()+"-"+month+"-"+selected_multipleDays.get(i).getDate());
             } catch (JSONException e) {
                 e.printStackTrace();
             }

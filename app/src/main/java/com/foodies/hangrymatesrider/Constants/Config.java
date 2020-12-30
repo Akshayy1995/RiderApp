@@ -18,8 +18,12 @@ public class Config {
     public static final String verifyforgotPasswordCode = baseURL+"verifyforgotPasswordCode";
     public static final String changePasswordForgot = baseURL+"changePasswordForgot";
 
+   public static final String Privacy_policy="https://hangrymates.com.au/privacy-policy.html";
+   public static final String Terms_of_Use="https://docs.google.com/document/d/e/2PACX-1vR5dTurJFz7uckPlNOpttBAcfRdo77PUI705c4P9wi6SJ7UikJBubYKqUvrekM2BQ/pub";
 
-    public static final String SHOW_ORDER_DETAIL = baseURL+"showOrderDetail";
+
+
+   public static final String SHOW_ORDER_DETAIL = baseURL+"showOrderDetail";
 
 
     public static final String SHOW_RIDER_TRACKING = baseURL+"showRiderTracking";
@@ -39,6 +43,7 @@ public class Config {
     public static final String ADD_SHIFT_DATE_TIME = baseURL+"AddRiderTiming";
     public static final String SHIFT_DETAILS = baseURL+"showRiderTimingBasedOnDate";
     public static final String ADD_RIDER_TIMING = baseURL+"AddRiderTiming";
+    public static final String CONFIRMOPENSHIFT = baseURL+"confirmOpenShift";
     public static final String UPDATE_RIDER_SHIFT_STATUS = baseURL+"updateRiderShiftStatus";
 
 

@@ -44,8 +44,7 @@ public class WeeklyEarningsActivity extends AppCompatActivity {
 
     ArrayList<Double>delivery_fee_price;
     ArrayList<Double>rider_price;
-    Double delivery_sum =0.0;
-    Double rider_sum =0.0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +101,7 @@ public class WeeklyEarningsActivity extends AppCompatActivity {
                 },mYear, mMonth, mDay);
                 mDatePicker.setTitle("Select date");
                 mDatePicker.show();
+                mDatePicker.getDatePicker().setMaxDate(System.currentTimeMillis());
             }
         });
 
@@ -123,6 +123,7 @@ public class WeeklyEarningsActivity extends AppCompatActivity {
                 },mYear_end, mMonth_end, mDay_end);
                 mDatePicker.setTitle("Select date");
                 mDatePicker.show();
+                mDatePicker.getDatePicker().setMaxDate(System.currentTimeMillis());
             }
         });
 
@@ -163,6 +164,9 @@ public class WeeklyEarningsActivity extends AppCompatActivity {
             public void Responce(String resp) {
 
                 try {
+
+                    delivery_fee_price.clear();
+                    rider_price.clear();
                     progressDialog.setVisibility(View.GONE);
                     JSONObject jsonObject1 = new JSONObject(resp);
 
@@ -173,6 +177,8 @@ public class WeeklyEarningsActivity extends AppCompatActivity {
                         JSONObject json = new JSONObject(jsonObject1.toString());
                         JSONArray jsonarray = json.getJSONArray("msg");
 
+                        Double delivery_sum =0.0;
+                        Double rider_sum =0.0;
                         Log.d("order_arrey", "array"+String.valueOf(jsonarray));
 
 
@@ -207,7 +213,7 @@ public class WeeklyEarningsActivity extends AppCompatActivity {
 
                         try {
                             cardview_total_earning.setVisibility(View.VISIBLE);
-                            txt_total_earnings.setText("$"+final_sum);
+                            txt_total_earnings.setText("$"+String.format("%.2f", final_sum));
                         }catch (Exception e){
                             Log.d("exception",e.getLocalizedMessage());
                         }

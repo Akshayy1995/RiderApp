@@ -82,7 +82,9 @@ public class NotificationUtils {
 
             if (imageUrl != null && imageUrl.length() > 4 && Patterns.WEB_URL.matcher(imageUrl).matches()) {
 
-                Bitmap bitmap = getBitmapFromURL(imageUrl);
+                showSmallNotification(mBuilder, icon, title, message, timeStamp, resultPendingIntent, alarmSound);
+                playNotificationSound();
+               /* Bitmap bitmap = getBitmapFromURL(imageUrl);
 
                 if (bitmap != null) {
                     showBigNotification(bitmap, mBuilder, icon, title, message, timeStamp, resultPendingIntent, alarmSound);
@@ -90,7 +92,7 @@ public class NotificationUtils {
                 } else {
                     showSmallNotification(mBuilder, icon, title, message, timeStamp, resultPendingIntent, alarmSound);
                     playNotificationSound();
-                }
+                }*/
             }
         } else {
             showSmallNotification(mBuilder, icon, title, message, timeStamp, resultPendingIntent, alarmSound);
@@ -126,7 +128,6 @@ public class NotificationUtils {
                     .setStyle(inboxStyle)
                     .setWhen(getTimeMilliSec(timeStamp))
                     .setSmallIcon(R.drawable.app_icon)
-                    .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), icon))
                     .setContentText(message)
                     .setChannelId(channelId)
                     .setPriority(NotificationManager.IMPORTANCE_HIGH);
@@ -142,7 +143,6 @@ public class NotificationUtils {
                     .setStyle(inboxStyle)
                     .setWhen(getTimeMilliSec(timeStamp))
                     .setSmallIcon(R.drawable.app_icon)
-                    .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), icon))
                     .setContentText(message)
                     .setChannelId(channelId)
                     .setPriority(NotificationManager.IMPORTANCE_HIGH);
@@ -200,7 +200,6 @@ public class NotificationUtils {
                     .setStyle(bigPictureStyle)
                     .setWhen(getTimeMilliSec(timeStamp))
                     .setSmallIcon(R.drawable.app_icon)
-                    .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), icon))
                     .setContentText(message)
                     .setChannelId(channelId)
                     .setPriority(NotificationManager.IMPORTANCE_HIGH);
@@ -215,7 +214,6 @@ public class NotificationUtils {
                     .setStyle(bigPictureStyle)
                     .setWhen(getTimeMilliSec(timeStamp))
                     .setSmallIcon(R.drawable.app_icon)
-                    .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), icon))
                     .setContentText(message)
                     .setChannelId(channelId)
                     .setPriority(NotificationManager.IMPORTANCE_HIGH);

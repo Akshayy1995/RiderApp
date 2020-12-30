@@ -119,6 +119,7 @@ public class MyShiftAdapter extends RecyclerView.Adapter<MyShiftAdapter.ViewHold
                                 }
 
 
+
                             }else {
                                 Log.d("confirm", String.valueOf(jsonResponse));
                             }
@@ -165,13 +166,14 @@ public class MyShiftAdapter extends RecyclerView.Adapter<MyShiftAdapter.ViewHold
                             int code_id = Integer.parseInt(jsonResponse.optString("code"));
 
                             if (code_id == 200) {
-                                if (type.equals("open_shift")){
+                               /* if (type.equals("open_shift")){
                                     ((OpenShiftActivity)context).finish();
                                     context.startActivity(new Intent(context,OpenShiftActivity.class));
                                 }else {
                                     ((MyShiftActivity)context).finish();
                                     context.startActivity(new Intent(context,OpenShiftActivity.class));
-                                }
+                                }*/
+                                Confirm(getDataAdapter.get(position).getId());
 
 
                             }else {
@@ -195,6 +197,54 @@ public class MyShiftAdapter extends RecyclerView.Adapter<MyShiftAdapter.ViewHold
 
             }
         });
+    }
+
+    private void Confirm(String open_shift_id) {
+
+        progressDialog.setVisibility(View.VISIBLE);
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("open_shift_id",open_shift_id);
+            jsonObject.put("user_id",user_id);
+            jsonObject.put("open_shift_confirm","1");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        ApiRequest.Call_Api(context, Config.CONFIRMOPENSHIFT, jsonObject, new Callback() {
+            @Override
+            public void Responce(String resp) {
+                try {
+                    progressDialog.setVisibility(View.GONE);
+                    JSONObject jsonResponse = new JSONObject(resp);
+                    int code_id = Integer.parseInt(jsonResponse.optString("code"));
+
+                    if (code_id == 200) {
+                                if (type.equals("open_shift")){
+                                    ((OpenShiftActivity)context).finish();
+                                    context.startActivity(new Intent(context,OpenShiftActivity.class));
+                                }else {
+                                    ((MyShiftActivity)context).finish();
+                                    context.startActivity(new Intent(context,OpenShiftActivity.class));
+                                }
+
+                    }else {
+                        Log.d("confirm", String.valueOf(jsonResponse));
+                    }
+
+                }catch (JSONException e){
+                    progressDialog.setVisibility(View.GONE);
+                    e.getCause();
+                    Log.d("confirm",e.getLocalizedMessage()+" "+e.getMessage());
+
+                }
+
+            }
+        });
+
+
+
     }
 
 

@@ -50,8 +50,6 @@ import java.util.Map;
 public class UpdateLocation extends Service implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
 
-
-
     Intent intent;
     private static final String TAG = "Resp";
 
@@ -107,10 +105,10 @@ public class UpdateLocation extends Service implements GoogleApiClient.Connectio
         if (mGoogleApiClient != null) {
             mGoogleApiClient.connect();
         }
-        Thread thread = new Thread(new Mythreadclass());
-        thread.start();
+       /* Thread thread = new Thread(new Mythreadclass());
+        thread.start();*/
 
-        return super.onStartCommand(intent, flags, startId);
+        return START_STICKY;
     }
 
 
@@ -130,7 +128,6 @@ public class UpdateLocation extends Service implements GoogleApiClient.Connectio
             Log.d("resp",previousLat+"---"+previousLong);
 
         } else {
-
             Toast.makeText(this, "Couldn't get the location. Make sure location is enabled on the device", Toast.LENGTH_SHORT).show();
         }
     }
@@ -178,10 +175,10 @@ public class UpdateLocation extends Service implements GoogleApiClient.Connectio
                 }
                 for (Location location : locationResult.getLocations()) {
                     if (location != null) {
+                        Log.d("get_b",location.getLongitude()+" "+location.getLongitude());
                         mLastLocation = location;
                         displayLocation();
                         saveRiderLocation(location);
-
                     }
                 }
             }
@@ -240,9 +237,10 @@ public class UpdateLocation extends Service implements GoogleApiClient.Connectio
         JSONObject jsonObject = new JSONObject();
 
         try {
-            jsonObject.put("user_id",user_id);
+           jsonObject.put("user_id",user_id);
             jsonObject.put("lat",location.getLatitude());
             jsonObject.put("long",location.getLongitude());
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -278,7 +276,6 @@ public class UpdateLocation extends Service implements GoogleApiClient.Connectio
         queue.add(updateLocationRequest);
 
     }
-
 
 
 

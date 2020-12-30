@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -58,7 +60,9 @@ public class LoginAcitvity extends AppCompatActivity implements View.OnClickList
 
     EditText ed_email,ed_password;
 
-
+    CheckBox terms_condition;
+    TextView txt_terms,txt_privacy_policy;
+    Boolean check_terms_condition = false;
 
     public static final Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(
             "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
@@ -142,6 +146,9 @@ public class LoginAcitvity extends AppCompatActivity implements View.OnClickList
                 else if (!valid) {
 
                     Toast.makeText(LoginAcitvity.this, "Enter Valid Email!", Toast.LENGTH_SHORT).show();
+                }else if (!check_terms_condition){
+
+                    Toast.makeText(LoginAcitvity.this, "Please Accept Terms of Use & Privacy Policy", Toast.LENGTH_SHORT).show();
                 }else {
 
                     String this_email = ed_email.getText().toString();
@@ -153,6 +160,44 @@ public class LoginAcitvity extends AppCompatActivity implements View.OnClickList
             }
         });
 
+
+        terms_condition = findViewById(R.id.checkbox_terms_condition);
+        txt_terms = findViewById(R.id.txt_terms);
+        txt_privacy_policy = findViewById(R.id.txt_privacy_policy);
+
+        terms_condition.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    // perform logic
+                    check_terms_condition = true;
+                }else {
+                    check_terms_condition = false;
+                }
+            }
+        });
+
+        txt_terms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(LoginAcitvity.this,TermsConditionActivity.class);
+                intent.putExtra("type","Terms of Use");
+                startActivity(intent);
+
+            }
+        });
+
+        txt_privacy_policy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(LoginAcitvity.this,TermsConditionActivity.class);
+                intent.putExtra("type","Privacy Policy");
+                startActivity(intent);
+
+            }
+        });
 
 
 

@@ -10,7 +10,6 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
@@ -231,7 +230,6 @@ public class RiderMainActivity extends AppCompatActivity {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"channel-01");
         builder.setSmallIcon(R.drawable.app_icon)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.app_icon))
                 .setColor(ContextCompat.getColor(context, R.color.colorRed))
                 .setContentTitle("Foodomia")
                 .setContentIntent(pendingIntent)

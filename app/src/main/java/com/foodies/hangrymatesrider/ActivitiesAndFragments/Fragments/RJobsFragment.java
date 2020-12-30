@@ -1,7 +1,9 @@
 package com.foodies.hangrymatesrider.ActivitiesAndFragments.Fragments;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -14,6 +16,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -32,6 +36,7 @@ import com.foodies.hangrymatesrider.Constants.Callback;
 import com.foodies.hangrymatesrider.Constants.Config;
 import com.foodies.hangrymatesrider.Constants.PreferenceClass;
 import com.foodies.hangrymatesrider.Models.ROrderModel;
+import com.foodies.hangrymatesrider.Services.UpdateLocationNew;
 import com.foodies.hangrymatesrider.Utils.FontHelper;
 import com.foodies.hangrymatesrider.Utils.RelateToFragment_OnBack.RootFragment;
 import com.foodies.hangrymatesrider.ActivitiesAndFragments.Activities.ROnlineStatusActivity;
@@ -52,8 +57,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import com.foodies.hangrymatesrider.R;
-
-import com.foodies.hangrymatesrider.Services.UpdateLocation;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -151,7 +154,7 @@ public class RJobsFragment extends RootFragment implements GoogleApiClient.OnCon
         fn_permission();
         if (boolean_permission) {
 
-            Intent intent = new Intent(getContext(), UpdateLocation.class);
+            Intent intent = new Intent(getContext(), UpdateLocationNew.class);
             getContext().startService(intent);
 
         } else {
@@ -618,18 +621,29 @@ public class RJobsFragment extends RootFragment implements GoogleApiClient.OnCon
         return true;
     }
 
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            latitude = Double.valueOf(intent.getStringExtra("latutide"));
+            longitude = Double.valueOf(intent.getStringExtra("longitude"));
+            Log.d("location_new_b",latitude+" "+longitude);
+
+        }
+    };
 
     @Override
     public void onResume() {
-        super.onResume();
         checkPlayServices();
+        context.registerReceiver(broadcastReceiver, new IntentFilter(UpdateLocationNew.str_receiver));
+        super.onResume();
 
     }
 
     @Override
     public void onPause() {
         super.onPause();
-
+        context.unregisterReceiver(broadcastReceiver);
     }
 
     @Override

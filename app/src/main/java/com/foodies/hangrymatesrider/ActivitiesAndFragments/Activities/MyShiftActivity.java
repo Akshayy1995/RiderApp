@@ -77,7 +77,8 @@ public class MyShiftActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MyShiftActivity.this,OpenShiftActivity.class);
                 startActivity(intent);
-                finish();
+               finish();
+                overridePendingTransition(R.xml.stay_animation, R.xml.stay_animation);
 
             }
         });

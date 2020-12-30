@@ -94,5 +94,6 @@
     <string name="chat">Charla</string>
     <string name="profile">Perfil</string>
     <string name="new_message">Nuevo mensaje</string>
+    <!--<string name="ApiKeyOld">"current_key": "AIzaSyAldLRrkozE61NSySX0peE9Sk7iQ78mVXI",</string>-->
 
 </resources>

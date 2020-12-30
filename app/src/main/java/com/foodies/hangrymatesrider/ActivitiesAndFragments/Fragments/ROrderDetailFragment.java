@@ -58,7 +58,7 @@ public class ROrderDetailFragment extends RootFragment {
     ImageView back_icon,info_icon;
     Button confirm_btn;
     String order_number;
-    RelativeLayout user_location_div,restaurant_address_div,user_call_div,hotel_call_div,pay_to_rest_div;
+    RelativeLayout user_location_div,restaurant_address_div,user_call_div,hotel_call_div,pay_to_rest_div,rl_tax_div;
     SharedPreferences rDetail_Pref;
     TextView rider_jobs_title,r_hotel_name,order_number_tv,hotel_address_tv,r_total_bil_tv,card_detail_tv,time_tv,hotel_name2,rest_address_tv,
             rest_phone_number,user_name,user_address,user_phone_number,total_tax_tv,delivery_fee_tv,total_payment_tv,card_tv,tip_tv,
@@ -139,6 +139,7 @@ public class ROrderDetailFragment extends RootFragment {
 
         pay_to_rest_tv = v.findViewById(R.id.pat_to_rest_tv);
         pay_to_rest_div = v.findViewById(R.id.pay_to_rest_div);
+        rl_tax_div = v.findViewById(R.id.rl_tax_div);
 
         sub_total_payment_tv = v.findViewById(R.id.sub_total_payment_tv);
         totalText = v.findViewById(R.id.totalText);
@@ -503,6 +504,8 @@ public class ROrderDetailFragment extends RootFragment {
                         JSONObject json = new JSONObject(jsonResponse.toString());
                         JSONArray jsonArray = json.getJSONArray("msg");
 
+                        Log.d("OrderDetails", String.valueOf(jsonArray));
+
                         for (int i=0;i<jsonArray.length();i++) {
 
                             JSONObject allJsonObject = jsonArray.getJSONObject(i);
@@ -578,6 +581,13 @@ public class ROrderDetailFragment extends RootFragment {
                             String tax = orderJsonObject.optString("tax");
 
                             String tax_free = restaurantJsonObject.optString("tax_free");
+                            if (tax.equals("0.00")|| tax.equals("0")){
+
+                                rl_tax_div.setVisibility(View.GONE);
+                            }else {
+                                rl_tax_div.setVisibility(View.VISIBLE);
+                            }
+
                             if (tax_free.equalsIgnoreCase("1")) {
                                 total_tax_tv.setText("(" + "0" + "%)");
 
